@@ -1,6 +1,6 @@
 import 'file_item.dart';
 
-class FileNode extends Comparable<FileNode> {
+class FileNode implements Comparable<FileNode> {
   FileNode? parent;
   FileItem data;
   int level;

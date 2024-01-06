@@ -614,11 +614,11 @@ class _EnterState extends State<EnterPage>
                             ),
                             margin: EdgeInsets.only(top: 5),
                           ),
-                          QrImage(
-                            data:
-                                "https://github.com/air-controller/air-controller-mobile/releases",
-                            size: 130,
-                          )
+                          // QrImage(
+                          //   data:
+                          //       "https://github.com/air-controller/air-controller-mobile/releases",
+                          //   size: 130,
+                          // )
                         ]),
                         width: width,
                         height: height,

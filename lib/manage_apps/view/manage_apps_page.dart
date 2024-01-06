@@ -942,7 +942,7 @@ class _ManageAppsPageState extends State<ManageAppsPage> {
                                       .add(ManageAppsKeyWordChanged(value));
                                 },
                               );
-                            }),
+                            }), stream: null,
                           ),
                           width: 200,
                           height: 30,
