@@ -306,6 +306,7 @@ class _EnterState extends State<EnterPage>
                           width: radarRadius * 1.5,
                           height: radarRadius * 1.5,
                           decoration: BoxDecoration(
+                              // 扇形扫码颜色
                               gradient: SweepGradient(colors: [
                             Color(0xfff8fbf4),
                             Color(0xfffcfefb),
@@ -314,10 +315,11 @@ class _EnterState extends State<EnterPage>
                         ),
                       ),
                     ),
+                      clipBehavior: Clip.antiAlias,
                   ),
                 ),
               ),
-              Align(
+              Align( // WIFI 图标
                 alignment: Alignment.center,
                 child: Image.asset("assets/icons/intro_radar.png",
                     width: _ICON_SIZE, height: _ICON_SIZE),
@@ -333,12 +335,12 @@ class _EnterState extends State<EnterPage>
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(context.l10n.currentNetworkLabel,
+                            Text(context.l10n.currentNetworkLabel, // Current network
                                 style: TextStyle(
                                     color: Color(0xff5b5c61),
                                     fontSize: 16,
                                     decoration: TextDecoration.none)),
-                            Text("${networkName}",
+                            Text("${networkName}", // WLAN
                                 style: TextStyle(
                                     color: Color(0xff5b5c61),
                                     fontSize: 16,
@@ -347,7 +349,7 @@ class _EnterState extends State<EnterPage>
                       margin: EdgeInsets.fromLTRB(0, marginTop, 0, 0),
                     ),
                     Container(
-                        child: Text(
+                        child: Text( // 连接说明
                           context.l10n.tipConnectToSameNetwork
                               .replaceFirst("%s", "${Constant.APP_NAME}"),
                           style: TextStyle(
@@ -365,14 +367,14 @@ class _EnterState extends State<EnterPage>
                 child: Container(
                   child: Wrap(
                     children: [
-                      Text(
+                      Text( // 底部文字说明
                           context.l10n.tipInstallMobileApp01
                               .replaceFirst("%s", "${Constant.APP_NAME}"),
                           style: TextStyle(
                               color: Color(0xff949494),
                               fontSize: 16,
                               decoration: TextDecoration.none)),
-                      Container(
+                      Container( // click here
                         child: Listener(
                           child: Text(context.l10n.tipInstallMobileApp02,
                               style: TextStyle(
@@ -400,7 +402,7 @@ class _EnterState extends State<EnterPage>
                   margin: EdgeInsets.only(bottom: 10),
                 ),
               ),
-              IgnorePointer(
+              IgnorePointer(// 圆圈颜色
                 child: MultipleRings(
                   width: width,
                   height: height,
@@ -586,6 +588,7 @@ class _EnterState extends State<EnterPage>
     _cmdClient?.sendToServer(cmd);
   }
 
+  // scan qrcode download apk file
   void _showApkQrCode(Offset offset) {
     double width = 160;
     double height = 170;
@@ -610,15 +613,15 @@ class _EnterState extends State<EnterPage>
                           Container(
                             child: Text(
                               context.l10n.scanToDownloadApk,
-                              style: TextStyle(color: Color(0xff848485)),
+                              style: TextStyle(color: Color(0xff848485), fontSize: 12),
                             ),
                             margin: EdgeInsets.only(top: 5),
                           ),
-                          // QrImage(
-                          //   data:
-                          //       "https://github.com/air-controller/air-controller-mobile/releases",
-                          //   size: 130,
-                          // )
+                          QrImageView(
+                            data:
+                                "https://github.com/air-controller/air-controller-mobile/releases",
+                            size: 130,
+                          )
                         ]),
                         width: width,
                         height: height,

@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:math' hide log;
+
 import 'package:air_controller/enter/view/web_enter_page.dart';
 import 'package:air_controller/index/index_page.dart';
 import 'package:flutter/foundation.dart';
@@ -64,6 +67,7 @@ class App extends StatelessWidget {
               ? route.substring(0, index)
               : route;
 
+          log("routeName: $routeName");
           if (routeName == routeIndex) {
             return MaterialPageRoute(
                 builder: (context) => IndexPage(), settings: settings);
