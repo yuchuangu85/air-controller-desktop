@@ -57,8 +57,9 @@ dependencies:
   neat_periodic_task: ^2.0.0
   file_picker: ^6.1.1 #^4.3.1
   flowder:
-    git:
-      url: https://github.com/yuanhoujun/flowder
+    path: packages/flowder
+#    git:
+#      url: https://github.com/yuanhoujun/flowder
   flutter_markdown: ^0.6.9
   qr_flutter: ^4.0.0
   flutter_bloc: ^8.0.1
