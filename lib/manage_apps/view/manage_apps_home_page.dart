@@ -141,7 +141,7 @@ class _ManageAppsHomeView extends StatelessWidget {
                           borderRadius: 3.0,
                           verticalOffset: 0,
                           disabledChildren: [],
-                          onSegmentChosen: (index) async {
+                          onSegmentTapped: (index) async {
                             context.read<ManageAppsHomeBloc>().add(
                                 ManageAppsTabChanged(
                                     ManageAppsTabX.converIndexTo(index)));

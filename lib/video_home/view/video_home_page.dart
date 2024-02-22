@@ -187,7 +187,7 @@ class VideoHomeViewState extends State<VideoHomeView>
                           borderRadius: 3.0,
                           verticalOffset: 0,
                           disabledChildren: [],
-                          onSegmentChosen: (index) {
+                          onSegmentTapped: (index) {
                             context.read<VideoHomeBloc>().add(
                                 VideoHomeTabChanged(
                                     VideoHomeTabX.convertToTab(index)));

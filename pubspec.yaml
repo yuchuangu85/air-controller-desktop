@@ -41,7 +41,7 @@ dependencies:
   statusbarmanager: ^0.0.1
   intl: ^0.18.1
   flutter_spinkit: ^5.1.0
-  material_segmented_control: ^4.0.0
+  material_segmented_control: ^5.0.0
   cached_network_image: ^3.1.0+1
   path_provider: ^2.1.1 #^2.0.6
   sticky_headers: ^0.3.0+2

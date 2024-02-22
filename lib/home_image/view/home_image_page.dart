@@ -209,7 +209,7 @@ class HomeImageViewState extends State<HomeImageView>
                       borderRadius: 3.0,
                       verticalOffset: 0,
                       disabledChildren: [],
-                      onSegmentChosen: (index) {
+                      onSegmentTapped: (index) {
                         context.read<HomeImageBloc>().add(HomeImageTabChanged(
                             tab: HomeImageTabX.convertToTab(index)));
                       },

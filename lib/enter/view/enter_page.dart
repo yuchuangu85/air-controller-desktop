@@ -89,6 +89,7 @@ class _EnterState extends State<EnterPage>
             .read<EnterBloc>()
             .add(EnterNetworkChanged(true, networkName, networkType));
 
+        // start search connect devices
         _startSearchDevices();
 
         _startRefreshDeviceScheduler();
