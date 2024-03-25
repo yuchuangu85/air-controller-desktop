@@ -8,7 +8,7 @@ Future<bool> init() async {
 
   usePathUrlStrategy();
   html.window.document.onContextMenu.listen((evt) => evt.preventDefault());
-  bootstrap();
+  bootstrapDesktop();
   
   return true;
 }
