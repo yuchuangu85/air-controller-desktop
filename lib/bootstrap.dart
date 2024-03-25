@@ -8,5 +8,6 @@ import 'app_bloc_observer.dart';
 final logger = Logger(printer: PrettyPrinter());
 
 void bootstrap() {
-  BlocOverrides.runZoned(() => runApp(App()), blocObserver: AppBlocObserver());
+  Bloc.observer = AppBlocObserver();
+  runApp(const App());
 }
