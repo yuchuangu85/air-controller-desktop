@@ -582,9 +582,9 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
         // list and then tweak them appropriately.
         // See https://material.io/design/components/data-tables.html#tables-within-cards
         style: _selectedRowCount > 0
-            ? themeData.textTheme.subtitle1!
+            ? themeData.textTheme.titleMedium! //subtitle1!
                 .copyWith(color: themeData.colorScheme.secondary)
-            : themeData.textTheme.headline6!
+            : themeData.textTheme.headlineSmall! //headline6!
                 .copyWith(fontWeight: FontWeight.w400),
         child: IconTheme.merge(
           data: const IconThemeData(opacity: 0.54),
@@ -643,7 +643,7 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
     final MaterialLocalizations localizations =
         MaterialLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    final TextStyle? footerTextStyle = themeData.textTheme.caption;
+    final TextStyle? footerTextStyle = themeData.textTheme.titleLarge; //caption;
     final List<Widget> footerWidgets = <Widget>[];
 
     if (widget.onRowsPerPageChanged != null) {

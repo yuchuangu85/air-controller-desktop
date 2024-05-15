@@ -301,7 +301,7 @@ class DataTable2 extends DataTable {
 
     final TextStyle effectiveHeadingTextStyle = headingTextStyle ??
         themeData.dataTableTheme.headingTextStyle ??
-        themeData.textTheme.subtitle2!;
+        themeData.textTheme.titleMedium!;//subtitle2!;
     final double effectiveHeadingRowHeight = headingRowHeight ??
         themeData.dataTableTheme.headingRowHeight ??
         _headingRowHeight;
@@ -365,7 +365,7 @@ class DataTable2 extends DataTable {
 
     final TextStyle effectiveDataTextStyle = dataTextStyle ??
         themeData.dataTableTheme.dataTextStyle ??
-        themeData.textTheme.bodyText2!;
+        themeData.textTheme.bodyMedium!; //bodyText2!;
     final double effectiveDataRowHeight = specificRowHeight ??
         dataRowHeight ??
         themeData.dataTableTheme.dataRowHeight ??

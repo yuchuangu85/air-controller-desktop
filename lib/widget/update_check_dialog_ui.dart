@@ -79,14 +79,14 @@ class UpdateCheckDialogUI extends StatelessWidget {
                                     listIndent: 5,
                                     p: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyLarge// .bodyText1
                                         ?.copyWith(
                                             fontSize: 14.0,
                                             color: Color(0xff71777c),
                                             overflow: TextOverflow.ellipsis),
                                     listBullet: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyLarge //.bodyText1
                                         ?.copyWith(
                                             fontSize: 14.0,
                                             color: Color(0xff71777c)))),
