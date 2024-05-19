@@ -29,8 +29,8 @@ class _IndexPageState extends State<IndexPage> {
 
     _dio = Dio();
     _dio.options.baseUrl = urlUpdateDomain;
-    _dio.options.connectTimeout = 60000;
-    _dio.options.receiveTimeout = 60000;
+    _dio.options.connectTimeout = Duration(seconds: 60000);
+    _dio.options.receiveTimeout = Duration(seconds: 60000);
 
     _obtainUpdateInfo();
   }

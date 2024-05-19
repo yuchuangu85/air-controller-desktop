@@ -49,8 +49,8 @@ class AirControllerClient {
   AirControllerClient({required String domain}) : _domain = domain {
     dio = DioCore.Dio();
     dio.options.baseUrl = domain;
-    dio.options.connectTimeout = 0;
-    dio.options.receiveTimeout = 0;
+    dio.options.connectTimeout = Duration();
+    dio.options.receiveTimeout = Duration();
   }
 
   Future<List<ImageItem>> getAllImages() async {
@@ -636,7 +636,7 @@ class AirControllerClient {
       Function(String error)? onError}) async {
     final response = await dio.download(
         "$_domain/stream/downloadApk?package=$packageName", "$dir/$fileName",
-        deleteOnError: false, options: DioCore.Options(receiveTimeout: 0),
+        deleteOnError: false, options: DioCore.Options(receiveTimeout: Duration()),
         onReceiveProgress: (count, total) {
       onExportProgress?.call(count, total);
     });
@@ -663,7 +663,7 @@ class AirControllerClient {
     dio.download(
         "$_domain/stream/downloadApks?packages=$packagesStr", "$dir/$fileName",
         deleteOnError: false,
-        options: DioCore.Options(receiveTimeout: 0),
+        options: DioCore.Options(receiveTimeout: Duration()),
         cancelToken: cancelToken, onReceiveProgress: (count, total) {
       onExportProgress?.call(count, total);
     }).then((response) {
@@ -696,7 +696,7 @@ class AirControllerClient {
     dio
         .post("/common/uninstall",
             data: packages,
-            options: DioCore.Options(receiveTimeout: 0),
+            options: DioCore.Options(receiveTimeout: Duration()),
             cancelToken: cancelToken)
         .then((response) {
       if (response.statusCode == 200) {
@@ -733,7 +733,7 @@ class AirControllerClient {
     try {
       final response = await dio.post("/contact/accountsAndGroups",
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final body = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(body);
@@ -765,7 +765,7 @@ class AirControllerClient {
     try {
       final response = await dio.post("/contact/allContacts",
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -796,7 +796,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/contactsByAccount",
           data: {"name": name, "type": type},
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -826,7 +826,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/contactsByGroupId",
           data: {"id": groupId},
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -856,7 +856,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/contactDetail",
           data: {"id": id},
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -888,7 +888,7 @@ class AirControllerClient {
     try {
       final response = await dio.post("/contact/contactDataTypes",
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -919,7 +919,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/createNewContact",
           data: requestEntity.toJson(),
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -1018,7 +1018,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/updateContact",
           data: requestEntity.toJson(),
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -1048,7 +1048,7 @@ class AirControllerClient {
       final response = await dio.post("/contact/deleteRawContact",
           data: requestEntity.toJson(),
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -1093,7 +1093,7 @@ class AirControllerClient {
 
     dio.post("/image/uploadPhotos",
         data: formData,
-        options: DioCore.Options(headers: headers, receiveTimeout: 0),
+        options: DioCore.Options(headers: headers, receiveTimeout: Duration()),
         onSendProgress: (int sent, int total) {
       onUploading?.call(sent, total);
     }, cancelToken: cancelToken).then((response) {
@@ -1144,7 +1144,7 @@ class AirControllerClient {
 
     dio.post("/audio/uploadAudios",
         data: formData,
-        options: DioCore.Options(headers: headers, receiveTimeout: 0),
+        options: DioCore.Options(headers: headers, receiveTimeout: Duration()),
         onSendProgress: (int sent, int total) {
       onUploading?.call(sent, total);
     }, cancelToken: cancelToken).then((response) {
@@ -1196,7 +1196,7 @@ class AirControllerClient {
 
     dio.post("/video/uploadVideos",
         data: formData,
-        options: DioCore.Options(headers: headers, receiveTimeout: 0),
+        options: DioCore.Options(headers: headers, receiveTimeout: Duration()),
         onSendProgress: (int sent, int total) {
       onUploading?.call(sent, total);
     }, cancelToken: cancelToken).then((response) {
@@ -1276,7 +1276,7 @@ class AirControllerClient {
 
     dio.post("/file/uploadFiles",
         data: formData,
-        options: DioCore.Options(headers: headers, receiveTimeout: 0),
+        options: DioCore.Options(headers: headers, receiveTimeout: Duration()),
         onSendProgress: (int sent, int total) {
       onUploading?.call(sent, total);
     }, cancelToken: cancelToken).then((response) {
@@ -1313,7 +1313,7 @@ class AirControllerClient {
       final response = await dio.post("/common/connect",
           data: {"passwd": pwd ?? ""},
           options:
-              DioCore.Options(receiveTimeout: 0, headers: _commonHeaders()));
+              DioCore.Options(receiveTimeout: Duration(), headers: _commonHeaders()));
       if (response.statusCode == 200) {
         final map = response.data;
         final httpResponseEntity = ResponseEntity.fromJson(map);
@@ -1333,8 +1333,8 @@ class AirControllerClient {
     final response = await dio.get(api,
         options: DioCore.Options(
             responseType: DioCore.ResponseType.bytes,
-            receiveTimeout: 0,
-            sendTimeout: 0,
+            receiveTimeout: Duration(),
+            sendTimeout: Duration(),
             headers: _commonHeaders()));
 
     if (response.statusCode == 200) {
